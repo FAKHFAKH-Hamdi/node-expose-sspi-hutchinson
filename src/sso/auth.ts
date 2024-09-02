@@ -14,7 +14,6 @@ import {
   SSOMethod,
   SSOObject,
 } from './interfaces';
-import { getStatusInfo } from './status';
 import { getKerberosDetails, getKerberosResponseDetails } from './kerberos';
 
 const DEBUG_KEY = 'node-expose-sspi:auth';
@@ -139,7 +138,7 @@ export function auth(options: Partial<AuthOptions> = {}): Middleware {
         }
 
         debug('input just before calling AcceptSecurityContext', input);
-        const serverSecurityContext = sspi.AcceptSecurityContext(input);
+        const serverSecurityContext = sspi.AcceptSecurityContext(input); // problem here
         debug(
           'serverSecurityContext just after AcceptSecurityContext',
           serverSecurityContext
@@ -241,8 +240,8 @@ export function auth(options: Partial<AuthOptions> = {}): Middleware {
       } catch (e) {
         schManager.release(req);
         console.error(e);
-        console.error('statusInfo: ', getStatusInfo());
-        console.error('messageType: ', messageType);
+        // console.error('statusInfo: ', getStatusInfo());
+        // console.error('messageType: ', messageType);
         const message = e instanceof Error ? e.message : e;
         next(createError(401, `Error while doing SSO: ${message}`));
       }
