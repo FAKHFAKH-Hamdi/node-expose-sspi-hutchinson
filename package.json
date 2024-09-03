@@ -1,6 +1,6 @@
 {
-  "name": "node-expose-sspi",
-  "version": "0.1.60",
+  "name": "node-expose-sspi-hutchinson",
+  "version": "0.1.61",
   "description": "Expose the Microsoft Windows SSPI interface in order to do NTLM and Kerberos authentication.",
   "keywords": [
     "SSPI",
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jlguenego/node-expose-sspi.git"
+    "url": "https://github.com/FAKHFAKH-Hamdi/node-expose-sspi-hutchinson.git"
   },
   "bugs": {
     "url": "https://github.com/jlguenego/node-expose-sspi/issues"
